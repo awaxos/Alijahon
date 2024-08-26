@@ -18,3 +18,4 @@ urlpatterns = [
 urlpatterns += [
     path('admin_page/market', MarketListView.as_view(), name='market'),
 ]
+
