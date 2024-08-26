@@ -1,0 +1,35 @@
+{% extends 'apps/include_base/base.html' %}
+{#{% load mathfilters %}#}
+
+
+{% block body %}
+    <div class="card-body bg-light px-1 py-0">
+        <div class="row g-0 text-center fs--1">
+            {% for category in categories %}
+                <div class="col-4 col-md-4 col-lg-3 col-xx1-2 mb-1">
+                    <div class="bg-white dark__bg-1100 p-1 h-100"><a href="#    "><img
+                            class="img-thumbnail img-fluid  mb-3 shadow-sm" src="{{ category.image.url }}" alt=""
+                            width="100"></a>
+                        <h6 class="mb-1"><a href="{% url 'category' %}">{{ category.name }}</a></h6>
+                        <p class="fs--2 mb-1"></p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="card mb-3">
+        <div class="card-body">
+            <div class="row"></div>
+        </div>
+        <div class="card-footer bg-light d-flex justify-content-center">
+            <div>
+                <a class="btn btn-falcon-default btn-sm me-2" href="{% if page_obj.has_previous %} ?page={{ page_obj.previous_page_number }} {% endif %}"  type="button" {% if not page_obj.has_previous %} disabled="disabled" {% endif %}
+                        data-bs-toggle="tooltip" data-bs-placement="top" title="Prev" ><span
+                        class="fas fa-chevron-left"></span></a>
+                <a class="btn btn-sm btn-falcon-default text-primary me-2" href="#">{{ page_obj.number }}</a>
+                <a class="btn btn-falcon-default btn-sm"  data-bs-toggle="tooltip" href="{% if page_obj.has_next %} ?page={{ page_obj.next_page_number }} {% endif %}"  type="button" {% if not page_obj.has_next %} disabled="disabled" {% endif %}
+                        data-bs-placement="top" title="Next"><span class="fas fa-chevron-right"></span></a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
