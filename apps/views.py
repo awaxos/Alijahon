@@ -80,6 +80,7 @@ class CustomLoginView(TemplateView):
                 }
                 return render(request, template_name='apps/auth/login.html', context=context)
 
+
 class WishListView(LoginRequiredMixin,ListView):
     queryset = WishList.objects.all()
     template_name = 'apps/wish-list.html'
