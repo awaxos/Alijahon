@@ -19,3 +19,10 @@ urlpatterns += [
     path('admin_page/market', MarketListView.as_view(), name='market'),
 ]
 
+
+git init
+git add .
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/awaxos/Alijahon.git
+git push -u origin main
