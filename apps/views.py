@@ -65,8 +65,6 @@ class CustomLoginView(TemplateView):
         phone_number = re.sub(r'\D', '', request.POST.get('phone_number'))
         user = User.objects.filter(phone_number=phone_number).first()
         if not user:
-            # is_ = validators.validate_password(request.POST['PASSWORD'])
-
             user = User.objects.create_user(phone_number=phone_number, password=request.POST['password'])
             login(request, user)
             return redirect('home')
